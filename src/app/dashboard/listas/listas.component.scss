@@ -1,0 +1,78 @@
+main{
+    height: calc(100vh - 54px);
+    margin-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-add{
+    width: max-content;
+    margin-bottom: 1rem;
+    background-color: rgba(43, 205, 43, 0.649);
+}
+
+.cont-listas{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.dragHandle{
+    position: absolute;
+    top: .2rem;
+    cursor: grab;
+}
+
+.lista{
+    width: 250px;
+    height: max-content;
+    position: relative;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cont-listas.cdk-drop-list-dragging .lista:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.acord-listas.cdk-drop-list-dragging .acord-lista:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.acord-listas{
+    display: none;
+}
+
+.acord-lista{
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .cont-listas{
+        display: none;
+    }
+
+    .acord-listas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-inline: 1rem;
+        gap: 1rem;
+    }
+}

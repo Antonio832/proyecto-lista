@@ -1,0 +1,70 @@
+<div class="home">
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-title">
+                <h1>Demo de listas personalizadas con Angular.</h1>
+                <p mat-card-subtitle style="color: white;">Proyecto exclusivamente de prueba y demostracion.</p>
+                <button class="btn-contenido" mat-stroked-button>Contenido del proyecto</button>
+                <button mat-raised-button routerLink="dash">📑Dashboard</button>
+            </div>
+            <div class="hero-img" cdkDropList>
+                <img class="tablas-png" src="../../assets/tablas.png" alt="tablas">
+                <div class="tablas-def"></div>
+                <mat-card class="hero-card" cdkDrag>
+                    <div class="card-title" matCardTitle>
+                        <h1>Contenido del curso</h1>
+                        <mat-icon class="card-handle" cdkDragHandle>drag_indicator</mat-icon>
+                    </div>
+
+                    <div class="cont" matCardContent>
+                        <mat-card *ngFor="let element of listData">
+                            {{element.label}}
+ 
+                            <mat-checkbox (change)="toggleImg(element.value)" class="check"></mat-checkbox>
+                        </mat-card>
+
+                        <div class="add-btn" matRipple>
+                            <mat-icon>
+                                add
+                            </mat-icon>
+                            Agregar elemento
+                        </div>
+                    </div>
+                </mat-card>
+
+                <div class="imgs">
+                    <img class="logo" [ngClass]="angular ? 'selected' : ''" src="../../assets/svgs/Angular-logo.svg" alt="logo" width="80" height="80">
+                    <img class="logo" [ngClass]="firebase ? 'selected' : ''" src="../../assets/svgs/firebase-logo.svg" alt="logo" width="75" height="75">
+                    <img class="logo" [ngClass]="material ? 'selected' : ''" src="../../assets/svgs/material.svg" alt="logo" width="70" height="70" style="margin-top: .5rem;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-this">
+        <div class="about-list">
+            <mat-card class="about-card">
+                <h1>Prioridades del curso</h1>
+                <div class="inner-about-list" cdkDropList (cdkDropListDropped)="suelta($event)">
+                    <mat-card
+                        cdkDrag
+                        *ngFor="let elemento of prioridades"
+                        class="prioridad"
+                    >
+                        <mat-icon class="card-priori-handle" cdkDragHandle>drag_indicator</mat-icon>
+                        {{elemento}}
+                    </mat-card>
+                </div>
+            </mat-card>
+        </div>
+        <div id="about-inner">
+            <h1>Crea este proyecto desde casa.</h1>
+            <h3 id="about-text">
+                Conoce mas sobre como puedes programar 
+                este proyecto interactivo completamente sin conocimiento previo de programacion, 
+                desarrolla aplicaciones completas con autenticacion, base de datos segura y 
+                hosting en la nube, todo con este curso.
+            </h3>
+            <button mat-raised-button>Contacto</button>
+        </div>
+    </div>
+</div>

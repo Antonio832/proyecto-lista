@@ -1,0 +1,17 @@
+<main>
+    <div class="perfil" *ngIf="usrProfile">
+        <h1>Bienvenido {{usrProfile.displayName}}</h1>
+        <img alt="perfil" referrerpolicy="no-referrer" [src]="usrProfile.photoURL" style="border-radius: 50%;">
+        <h3>{{usrProfile.email}}</h3>
+        <div class="actions">
+            <button 
+                mat-flat-button 
+                [color]="'warn'" 
+                (click)="signOut()"
+            >
+                Salir
+            </button>
+            <button mat-raised-button routerLink="/dash">Dashboard</button>
+        </div>
+    </div>
+</main>

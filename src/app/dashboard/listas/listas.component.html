@@ -1,0 +1,46 @@
+<main>
+    <h1>Grupo de listas</h1>
+
+    <button 
+        mat-raised-button 
+        class="btn-add"
+        (click)="agregar()"
+    >
+        <mat-icon>add</mat-icon>
+        Agregar lista
+    </button>
+
+    <!--Este es el modo desktop-->
+    <div
+        class="cont-listas"
+        cdkDropListOrientation="horizontal" 
+        cdkDropList
+        (cdkDropListDropped)="suelta($event)"
+    >
+        <app-lista
+            class="lista" 
+            *ngFor="let lista of listas" 
+            cdkDrag
+            [lista]="lista"
+        >
+            <mat-icon cdkDragHandle class="dragHandle">drag_indicator</mat-icon>
+        </app-lista>
+    </div>
+
+
+    <!--Este es el modo mobil-->
+    <mat-accordion
+        (cdkDropListDropped)="suelta($event)"
+        class="acord-listas"
+        cdkDropList
+        multi
+    >
+        <app-exp-lista 
+            class="acord-lista"
+            *ngFor="let lista of listas" 
+            cdkDrag
+            [lista]="lista"
+        >
+        </app-exp-lista>
+    </mat-accordion>
+</main>

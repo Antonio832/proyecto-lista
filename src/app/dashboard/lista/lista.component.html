@@ -1,0 +1,36 @@
+<mat-card class="lista">
+    <div matCardTitle class="titulo">
+        <ng-content></ng-content>
+        <h1>
+            {{lista.titulo}}
+            
+        </h1>
+        <button class="trig" mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editaTitulo()"><mat-icon>edit</mat-icon>Edita</button>
+            <button mat-menu-item class="red" (click)="borraTabla()">
+                <mat-icon class="red">delete</mat-icon>
+                Borrar
+            </button>
+        </mat-menu>
+    </div>
+    <div class="listaElementos" cdkDropList (cdkDropListDropped)="suelta($event)">
+        <app-elemento
+            cdkDrag
+            *ngFor="let elemento of lista.elementos; let i = index"
+            class="elemento"
+            [elemento]="elemento"
+            [index]="i"
+            (checkChange)="cambioElCheck()"
+            (deleteItem)="eliminaElemento($event)"
+            (updateItem)="editaElemento($event)"
+        >
+            
+        </app-elemento>
+    </div>
+    <button matRipple class="aggBtn" (click)="agregaElemento()">
+        <mat-icon>add</mat-icon>
+        Agrega elemento
+    </button>
+    <h3 matCardSubtitle class="index">{{lista.index}}</h3>
+</mat-card>

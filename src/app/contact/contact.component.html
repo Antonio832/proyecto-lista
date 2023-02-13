@@ -1,0 +1,47 @@
+<div class="main">
+    <div class="wrapper">
+        <mat-card>
+            <h1 matCardTitle>Mi primer Formulario</h1>
+            <form [formGroup]="primerForm" class="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>email</mat-label>
+                    <input matInput type="text" formControlName="email" autocomplete="off"/>
+                    <mat-error>Input invalido</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input matInput type="password" autocomplete="off" formControlName="password"/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Este es un select</mat-label>
+                    <mat-select>
+                        <mat-option value="Fruta">Fruta</mat-option>
+                        <mat-option value="Verdura">Verdura</mat-option>
+                        <mat-option value="Cereal">Cereal</mat-option>
+                        <mat-option value="Tuberculo">Tuberculo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </form>
+            <mat-radio-group [(ngModel)]="valorParaRadio">
+                <mat-radio-button value="1">Opcion 1</mat-radio-button>
+                <mat-radio-button value="2">Opcion 2</mat-radio-button>
+                <mat-radio-button value="3">Opcion 3</mat-radio-button>
+            </mat-radio-group>
+            <button mat-raised-button (click)="valorParaRadio = undefined">Reinicia</button>
+
+            <mat-button-toggle-group>
+                <mat-button-toggle>Hombre</mat-button-toggle>
+                <mat-button-toggle>Mujer</mat-button-toggle>
+                <mat-button-toggle>Otro</mat-button-toggle>
+            </mat-button-toggle-group>
+            
+            <div class="actions">
+                <button mat-stroked-button (click)="cancelarForm()">Cancelar</button>
+                <button mat-raised-button (click)="enviaForm()" [disabled]="!primerForm.valid">Enviar</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

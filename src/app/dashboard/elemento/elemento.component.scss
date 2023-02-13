@@ -1,0 +1,44 @@
+.elemento {
+    display: flex;
+    background-color: var(--colorVar);
+    position: relative;
+}
+
+.prog {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px 0 0 5px;
+    width: var(--progVar);
+    background-color: rgba(134, 134, 134, 0.372);
+}
+
+.texto{
+    z-index: 999;
+    margin: 0;
+}
+
+.elemento:hover .elemMenu{
+    right: -35%;
+    opacity: 1;
+}
+
+.elemMenu{
+    z-index: 99;
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.red{
+    color: rgba(255, 0, 0, 0.662);
+}
+
+@media (max-width: 550px){
+    .elemMenu{
+        display: none;
+    }
+}
